@@ -4,6 +4,12 @@ __pycache__/
 *$py.class
 
 mlops_env/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+mlflow.db
+mlartifacts/
+
 
 # C extensions
 *.so
