@@ -1,0 +1,281 @@
+Python
+Rancher
+
+Short breaks - 15 mins
+11:30 - 11:45
+Lunch Break 1:30 - 2:30
+4:00 - 4:15
+
+Anupama vd01
+Amarnath vd02
+Akshay vd03
+Vaseem vd04
+Shivanarendra vd05
+Keerthan vd06
+Sriram vd07
+Bhavesh vd08
+Roni vd09
+Praveen vd10
+Vishnu vd11
+Shravan vd12
+Himanshu vd13
+
+
+-------------------------------------------------------------
+
+Introduction to AI, ML and MLOps :
+
+-> AI - ML DL Gen AI Agentic AI
+-> AI - CS branch where machines are made intelligent
+      - focus on developing systems capable of doing tasks - human intelligence
+      - refer - learning, reasoning, understand language, recognize patterns, solve problems, decision making
+
+Banking : AI - identify which transactions are valid or which are fraud
+
+Specific branch : ML Machine Learning - subset of AI
+                  - enables systems to learn patterns from historical data (datasets - huge - csv)
+                  - ML and then it uses patterns to make predictions or decisions on new data
+                  - training a ML model
+
+                   Historical Information of House Prices
+
+                   10000 records
+                   - Location Area     Bedrooms OpenArea  Price
+                   - 110078   C1 Block   4        30%      2Cr
+                 
+                   Dataset : collection of observations used for ML model
+                   Features : Input variables - help algorithm identify patterns - Location Area Bedrooms OpenArea
+                   Target Variable : Price - value we want to predict
+                   Training Data : portion of dataset used to teach the algorithm (80% of the dataset)
+                   Testing Data : separate portion of dataset - evaluate how well the trained model performs on unseen obs (20%)
+                   Model : learned mathematical representation produced after training ML algorithm
+                         : captures patterns from the data
+                         : uses those patterns to generate predictions
+
+                   New set of values : 565757 B 5 25% -> Price? (AI ML model - tell you - predict the price)
+                    
+                   Two Types : Supervised ML 
+                               - historical dataset - both inputs (features) and outputs (target) are known
+                               Algorithms 
+                               - Linear Regression, Logistic Regression, Decision Trees, Random Forest, SVM
+                           
+                             : Unsupervised ML
+                               - historical dataset - inputs (features) are known
+                               - retail company - group customers according to purchasing behaviour
+                               - Cust Name, Location, Contact No, Amount, Payment Method, Points
+                               - K-Means Clustering, KNN (K Nearest Neighbours)
+
+                 
+MLOps :
+
+- ML model - No
+- model is deployed into production
+- customer churn prediction - telecom dataset
+- After 2 months - customer behavior changes
+- Model start generating inaccurate predictions
+- dataset is changed
+- model retrained, org will know - new model is better or old one?
+- existing model will be replaced
+
+MLOPs
+
+- set of engg practices 
+- processes and tools
+- manage the complete ML lifecycle
+- data mgmt., model mgmt., experimentation, deployment, monitoring and retraining
+
+Why ?
+
+Reproducibility - 
+- 85%
+- 79%
+data mgmt.
+- dataset changes, model performance may also change
+- need a mechanism to maintain diff dataset versions  - DVC
+Experimentation :
+- DS - freq train multiple model - change hyperparameters (parameters about the model - mathematical formula)
+- proper tracking system - compare experiments - MLflow
+Collaboration :
+- enterprise env - multiple developers work on same ML sol
+                 - need to share code, datasets, model info, exp results
+                 - collaborative flow - GitHub, DVC, MLflow
+
+
+csv -> dataset are generally proper datasets
+    -> Oracle - over the years - ML model find certain pattern 
+    -> dataset is very random - apply ML model - poor accuracy
+                              - test the model
+    -> 
+
+ML -> prediction, classification
+
+DL -> handles more complex problems 
+   -> NLP - Natural Language Processing 
+   -> classification of images : 
+      -> image animals, images objects - ML should 
+
+LLMs - trained on datasets
+     - very huge datasets 
+     - millions billions of records
+     - massive datasets
+
+
+- Mlflow - applied to DL model
+
+ML Lifecycle :
+
+- Business Problem Identification
+- Data Collection - DBs, CSV , Excel, APIs, Cloud
+- Data Exploration
+- Data Processing, Feature Engg (Create features from existing features, DOB - Age)
+- Model Development
+- Model Evolution
+- Model Deployment
+- Model Monitoring and Retraining
+- Connect the lifecycle with MLOps
+
+Data Exploration : Jupyter, Pandas
+Data Preparation : Pandas, Scikit-learn
+SCM : Git, GitHub
+Data versioning : DVC
+Experiment Tracking : MLflow
+Deployment : FastAPI, Rancher
+
+Python Virtual Env :
+
+-> provide an isolated environment
+-> installed packages, package versions - pandas (Pr1)
+
+
+CMD, POwershell
+
+ML Project : dataset - telecom - 7000 rows - customer churn prediction
+
+1. Project Dir : mkdir customer-churn-mlops-project
+
+cd customer-churn-mlops-project
+
+2. Create the venv :
+
+python -m venv mlops_env 
+invoke python interpreter
+-m tell python to execute a module
+venv - builtin Python virtual env module
+mlops_env - env name
+
+3. Activate the env :
+
+mlops_env\Scripts\activate.bat
+
+powershell : .mlops_env\Scripts\activate
+
+Pip -> Python package installer - install third party libraries
+
+4. Upgrade pip : python -m pip install --upgrade pip
+
+install project dependencies - pandas numpy ...... dvc mlflow
+
+5. install project dependencies 
+
+pip install pandas numpy matplotlib seaborn
+pip install scikit-learn
+
+venv : open jupyter notebook
+pip install ipykernel
+
+pip install dvc
+
+pip install mlflow
+
+pip list - verify the insallations
+
+6. Connect the venv to jupyter notebook
+
+   Register the env as a Jupyter kernel
+   python -m ipykernel install --user --name mlops_env --display-name "Python MLOps"
+
+
+powerhsell : jupyter notebook
+
+
+Push it to GitHub :
+
+git init
+git status
+notepad .gitignore
+git add .
+git commit -m "Initial Customer Churn Prediction Project"
+
+
+Push to GitHub :
+
+git branch -M main
+git remote add origin url
+git push -u origin main
+
+------------------------------------------------------------------
+
+Data Versioning using DVC
+
+Why ? 
+
+Business Situation :
+
+Version 1 : company 7043 records
+Version 2 : updated dataset with additional customer records
+Version 3 : Some customer billing info corrected
+
+train a model on version 1
+another on version 3 
+
+which data produced which result
+
+DVC - helps us maintain dataset versions and retrieve earlier versions
+
+Initialize DVC 
+
+dvc init
+
+Commit the DVC configuration 
+
+git add .dvc .dvcignore
+git commit -m "Initialize DVC"
+
+Remote Storage - configured Oracle Cloud, .......
+local directory - remote storage
+
+Kaggle Dataset 
+
+- add .csv file 
+
+DVC will -> calculate the hash of the dataset
+            Add the dataset to its local cache
+            Create ........ .csv.dvc
+            Add original CSV to DVC's ignore rules
+
+
+dvc push -> upload the dataset content to DVC remote storage
+dvc pull -> Retrieve dataset content from DVC remote storage
+
+
+Commands :
+
+dvc init
+git add .dvc .dvcignore
+git commit -m "Initialize DVC"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
