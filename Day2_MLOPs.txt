@@ -1,0 +1,20 @@
+DVC STorage .dvc ->
+
+GitHub -> clone 
+
+XYZ - clone your repo
+
+-> Cloud Storage - S3
+-> can access to same DVC
+
+Shared n/w storage
+- Org n/w drive
+- shared server
+
+-------------------------------------------------------------------------
+
+git add WA_Fn-UseC_-Telco-Customer-Churn.csv.dvc
+git add .dvc
+git commit -m "Track dataset using DVC"
+git push
+
