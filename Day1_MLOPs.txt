@@ -264,18 +264,52 @@ dvc init
 git add .dvc .dvcignore
 git commit -m "Initialize DVC"
 
+Configure DVC local storage/remote
+
+Create the directory 
+
+mkdir ../dvc_storage
+dvc remote add -d localremote ../dvc_storage
+dvc remote list
+git add .dvc/config
+git commit -m "Configure DVC remote storage"
+
+dvc_storage - outside Git project
+            - dataset versions can be stored separately from Git-tracked project code
 
 
+dvc add WA_Fn-UseC_-Telco-Customer-Churn.csv 
+-> calculate the hash of the dataset
+   Add the dataset to its local cache
+   Create ........ .csv.dvc
+   Add original CSV to DVC's ignore rules
 
 
+git add WA_Fn-UseC_-Telco-Customer-Churn.csv.dvc .gitignore
+
+git commit -m "Track customer churn daatset using DVC"
 
 
+dvc push
 
+Changed the dataset
+ 
+dvc status : WA_Fn-UseC_-Telco-Customer-Churn.csv.dvc:                                                                                    
+        changed outs:
+                modified:           WA_Fn-UseC_-Telco-Customer-Churn.csv
+(customer-churn-mlops-project
 
+Track the new version :
 
+dvc add WA_Fn-UseC_-Telco-Customer-Churn.csv 
 
+Commit and push
 
+git add WA_Fn-UseC_-Telco-Customer-Churn.csv.dvc
 
+git commit -m "Updated customer churn dataset - version 2"
 
+dvc push
 
+MLFlow
 
