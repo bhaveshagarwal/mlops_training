@@ -226,3 +226,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+/WA_Fn-UseC_-Telco-Customer-Churn.csv
